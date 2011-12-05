@@ -3,7 +3,5 @@ require 'sinatra'
 enable :logging
 
 post '/' do
-  puts "ok"
-  logger.info ENV['USER']
-  'Hello world!'
+  logger.info system('cd /home/vmdeploy/Valuation-Metrics && git pull && thin -C /etc/thin/Valuation-Metrics.yml restart')
 end
